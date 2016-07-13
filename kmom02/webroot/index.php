@@ -11,7 +11,7 @@ $app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN);
 $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme_me.php');
 
-$di->set('CommentController', function() use ($di) {
+$di->set('CommentController', function () use ($di) {
     $controller = new Anax\Comment\CommentController();
     $controller->setDI($di);
     return $controller;
@@ -88,7 +88,7 @@ $app->router->add('calendar', function () use ($app) {
     ]);
 });
 
-$app->router->add('comments1', function() use ($app) {
+$app->router->add('comments1', function () use ($app) {
     $app->theme->addStylesheet('css/form.css');
     $app->theme->addStylesheet('css/comment.css');
     $app->theme->setTitle("Anax-MVC kommentarsida 1");
@@ -103,7 +103,7 @@ $app->router->add('comments1', function() use ($app) {
     ]);
 });
 
-$app->router->add('comments2', function() use ($app) {
+$app->router->add('comments2', function () use ($app) {
     $app->theme->addStylesheet('css/form.css');
     $app->theme->addStylesheet('css/comment.css');
     $app->theme->setTitle("Anax-MVC kommentarsida 2");
