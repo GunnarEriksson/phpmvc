@@ -128,3 +128,15 @@ ta reda på saker, men ibland fungerar inte det på vissa ställen i koden. Ramv
 underlättar i många situationer, men samtidigt känns det som man förlorar lite av
 kontrollen när fel uppstår. Fel som ibland kan vara knepiga att hitta då en mycket
 görs av ramverket, vilket gör det svårare att förstå var problemet ligger.
+
+Jag fick problem med att validera mina formulär för att ändra och ta bort kommentarer
+på Unicorn. Validatorn påstod att “No Character encoding declared at document level”
+och dokumentet började med en radbrytning. Raden som dokumentet ska börja med
+(doctype html) kom först några rader längre ned. Jag satt i några timmar och ringade
+in felet, men det var först när jag bytte validator till https://validator.w3.org/nu/,
+där jag kunde klicka i ”Source” som jag förstod var det var. Jag hade inte kontrollerat
+om index i arrayen existerade innan jag satte parametrarna som ska skickas till vyn.
+Det blev ingen varning utan endast en notis. Detta syntes inte på sidan, var källkod
+såg bra ut, men validatorn reagerade på dessa notiser. Får undersöka om det går att
+ställa in att även notiserna dyker upp när man testar sin sida. Sedan kan man ta bort
+möjligheten när sidan är klar.
