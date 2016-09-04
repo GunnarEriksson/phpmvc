@@ -66,12 +66,18 @@ $app->router->add('dice', function () use ($app) {
 });
 
 $app->router->add('calendar', function () use ($app) {
+    $app->theme->addStylesheet('css/calendar.css');
     $app->theme->setTitle("Kalender");
 
-    $calendar = new \Anax\Calendar\CalendarLogic();
-
     $month = $app->request->getGet('month');
-    if (isset($month)) {
+    if (!isset($month)) {
+        // Calendar via menu bar.
+        $app->session->set('calendar', null);
+        $calendar = new \Anax\Calendar\CalendarLogic();
+        $app->session->set('calendar', $calendar);
+    } else {
+        // Calendar via buttons to get previous or next month.
+        $calendar = $app->session->get('calendar');
         $calendar->updateCalendar($month);
     }
 
@@ -83,7 +89,7 @@ $app->router->add('calendar', function () use ($app) {
         'year'          => $calendar->getYear(),
         'tableHeader'   => $calendar->getTableHeader(),
         'tableBody'     => $calendar->getTableBody(),
-    ], 'main-wide');
+    ]);
 });
 
 $app->router->add('comments1', function () use ($app) {
