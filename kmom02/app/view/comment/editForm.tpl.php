@@ -11,7 +11,7 @@
         <p><label>Hemsida:<br/><input type='text' name='web' value='<?=$web?>'/></label></p>
         <p><label>E-post:<br/><input type='text' name='mail' value='<?=$mail?>'/></label></p>
         <p class='buttons'>
-            <input type='submit' name='doEdit' value='Spara' onClick="this.form.action = '<?=$this->url->create('comment/edit')?>'"/>
+            <input type='submit' name='doEdit' value='Spara' onClick="this.form.action = '<?=$this->url->create('comments/edit')?>'"/>
             <input type='reset' value='Rensa'/>
         </p>
         <output><?=$output?></output>

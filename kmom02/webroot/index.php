@@ -11,8 +11,8 @@ $app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN);
 $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme_me.php');
 
-$di->set('CommentController', function () use ($di) {
-    $controller = new Anax\Comment\CommentController();
+$di->set('CommentsController', function () use ($di) {
+    $controller = new Anax\Comment\CommentsController();
     $controller->setDI($di);
     return $controller;
 });
@@ -102,7 +102,7 @@ $app->router->add('comments1', function () use ($app) {
     ]);
 
     $app->dispatcher->forward([
-        'controller' => 'comment',
+        'controller' => 'comments',
         'action'     => 'view',
         'params'     => ['comments1'],
     ]);
@@ -117,7 +117,7 @@ $app->router->add('comments2', function () use ($app) {
     ]);
 
     $app->dispatcher->forward([
-        'controller' => 'comment',
+        'controller' => 'comments',
         'action'     => 'view',
         'params'     => ['comments2'],
     ]);
