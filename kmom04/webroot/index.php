@@ -56,7 +56,7 @@ $app->router->add('dice', function () use ($app) {
         'accumulatedScore'  => $diceLogic->getAccumulatedScore(),
         'savedScore'        => $diceLogic->getSavedScore(),
         'message'           => $diceLogic->getMessage(),
-    ]);
+    ], 'main-wide');
 });
 
 $app->router->add('calendar', function () use ($app) {
@@ -83,7 +83,7 @@ $app->router->add('calendar', function () use ($app) {
         'year'          => $calendar->getYear(),
         'tableHeader'   => $calendar->getTableHeader(),
         'tableBody'     => $calendar->getTableBody(),
-    ]);
+    ], 'main-wide');
 });
 
 $app->router->add('comments1', function () use ($app) {
