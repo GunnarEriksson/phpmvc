@@ -1,6 +1,6 @@
 <div class="comment-heading">
 <h2>Kommentarer</h2>
-<span class='create-comment'><a href='<?=$this->url->create('comments/view-add/' . $pageKey)?>'>+Ny kommentar</a></span>
+<span class='create-comment'><a href='<?=$this->url->create('comments02/view-add/' . $pageKey)?>'>+Ny kommentar</a></span>
 </div>
 
 <?php if (is_array($comments)) : ?>
@@ -21,8 +21,8 @@
 <p><?= $comment['content'] ?></p>
 </div>
 <div class='admin-field'>
-    <span class='admin'><a href='<?=$this->url->create('comments/view-edit/' . $pageKey . '/' . $id)?>'>Redigera</a></span>
-    <span class='admin'><a href='<?=$this->url->create('comments/view-delete/' . $pageKey . '/' . $id)?>'>Radera</a></span>
+    <span class='admin'><a href='<?=$this->url->create('comments02/view-edit/' . $pageKey . '/' . $id)?>'>Redigera</a></span>
+    <span class='admin'><a href='<?=$this->url->create('comments02/view-delete/' . $pageKey . '/' . $id)?>'>Radera</a></span>
 </div>
 </div>
 </div>

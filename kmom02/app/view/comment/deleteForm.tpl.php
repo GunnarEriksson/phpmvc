@@ -11,8 +11,8 @@
         <p><label>Hemsida:<br/><input type='text' name='web' value='<?=$web?>' readonly/></label></p>
         <p><label>E-post:<br/><input type='text' name='mail' value='<?=$mail?>' readonly/></label></p>
         <p class='buttons'>
-            <input type='submit' name='doDelete' value='Radera' onClick="this.form.action = '<?=$this->url->create('comments/delete')?>'"/>
-            <input type='submit' name='doRemoveAll' value='Radera allt' onClick="this.form.action = '<?=$this->url->create('comments/remove-all')?>'"/>
+            <input type='submit' name='doDelete' value='Radera' onClick="this.form.action = '<?=$this->url->create('comments02/delete')?>'"/>
+            <input type='submit' name='doRemoveAll' value='Radera allt' onClick="this.form.action = '<?=$this->url->create('comments02/remove-all')?>'"/>
         </p>
         <output><?=$output?></output>
         </fieldset>

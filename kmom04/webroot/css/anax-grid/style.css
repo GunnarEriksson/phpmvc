@@ -3165,7 +3165,7 @@ p.buttons {
   text-align: center;
   width: 100%;
 }
-#users tr:first-child {
+#users thead {
   background: #396a2f;
   background: linear-gradient(#396a2f,#55a046);
   color: #fff;
@@ -3174,7 +3174,7 @@ p.buttons {
 th {
   padding: 0.5em;
 }
-#users tr:nth-of-type(2n) {
+#users tbody tr:nth-child(odd) {
   background-color: #eee;
 }
 #user-admin h1 {
