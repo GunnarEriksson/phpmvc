@@ -357,10 +357,11 @@ som man kan använda sig av när man skapar en tabell med hjälp av min modul.
 
 #### Gjorde du extrauppgiften? Beskriv i så fall hur du tänkte och vilket resultat du fick.
 
-Ja, det gjorde jag. Några hade lagt till loggningsmodulen toeswade/log som jag tyckte verkade vara
-intressant. Det verkar vara en bra modul om man skulle behöva mäta prestanda. Den gick smidigt att
-ladda ner och installera. För narvande är den bortkommenterad, men skulle jag behöva använda den
-när jag utvecklar, så är det lätt ordnat.
+Ja, det gjorde jag. Förutom att använda min egen modul, så har jag lagt till loggningsmodulen
+toeswade/log som jag tyckte verkade vara intressant. Det verkar vara en bra modul om man skulle
+behöva mäta prestanda. Den gick smidigt att ladda ner, installera och använda. Det var kul att
+studera de olika siffrorna. För närvande är den dock bortkommenterad i index.php, men skulle
+jag behöva använda den när jag utvecklar, så är det lätt ordnat.
 
 #### Allmänt om kursmomentet
 Det var ett roligt moment där man fria händer att skapa en modul. Ett trevligt avbrott mot tidigare
