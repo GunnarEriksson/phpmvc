@@ -165,31 +165,36 @@ $app->router->add('users', function () use ($app) {
 $app->router->add('table', function () use ($app) {
     $app->theme->setTitle("Tabell");
 
+    // Create data objects.
+    $row0 = new stdClass();
+    $row0->column1 = "Table Cell 1";
+    $row0->column2 = "Table Cell 2";
+    $row0->column3 = "Table Cell 3";
+    $row0->column4 = "https://www.google.se";
+    $row0->column5 = "Table Cell 5";
+    $row0->column6 = "Table Cell 6";
+
+    $row1 = new stdClass();
+    $row1->column1 = "Table Cell 7";
+    $row1->column2 = "Table Cell 8";
+    $row1->column3 = "Table Cell 9";
+    $row1->column4 = "https://www.google.se";
+    $row1->column5 = "Table Cell 11";
+    $row1->column6 = "";
+
+    $row2 = new stdClass();
+    $row2->column1 = "Table Cell 13";
+    $row2->column2 = "Table Cell 14";
+    $row2->column3 = "Table Cell 15";
+    $row2->column4 = "https://www.google.se";
+    $row2->column5 = "Table Cell 17";
+    $row2->column6 = "Table Cell 18";
+
+    // Create table data, which is an array of data objects.
     $data = [
-       0 => [
-           "column1" => "Table Cell 1",
-           "column2" => "Table Cell 2",
-           "column3" => "Table Cell 3",
-           "column4" => "https://www.google.se",
-           "column5" => "Table Cell 5",
-           "column6" => "Table Cell 6",
-       ],
-       1 => [
-           "column1" => "Table Cell 7",
-           "column2" => "Table Cell 8",
-           "column3" => "Table Cell 9",
-           "column4" => "https://www.google.se",
-           "column5" => "Table Cell 11",
-           "column6" => null,
-       ],
-       2 => [
-           "column1" => "Table Cell 13",
-           "column2" => "Table Cell 14",
-           "column3" => "Table Cell 15",
-           "column4" => "https://www.google.se",
-           "column5" => "Table Cell 17",
-           "column6" => "Table Cell 18",
-       ],
+        0 => $row0,
+        1 => $row1,
+        2 => $row2,
     ];
 
     $table = new \Anax\HTMLTable\CHTMLTableExample($data);

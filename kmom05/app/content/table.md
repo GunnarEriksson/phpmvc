@@ -1,6 +1,6 @@
 Tabellen är genererad av min egenutvecklade modul CHTMLTable. Tabelldata skickas in
-som en multidimensionell associativ array, men koden kan lätt ändras till att ta
-emot tabelldata i form av ett objekt som innehåller en associativ array.
+som en array av objekt. Ett exempel på en array som består av dataobjekt, är när
+man hämtar data från en MySQL databas med typen PDO::FETCH_OBJ.
 
 Tabellen kan konfigureras enligt följande:
 
