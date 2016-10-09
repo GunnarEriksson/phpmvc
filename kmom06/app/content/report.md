@@ -398,11 +398,11 @@ det vara bara att kopiera och klistra in kodraden i min README-fil.
 Det enda som var förvirrande, var om det kostar att använda Scrutinizer eller inte. Minsta summan
 är annars 49 Euro i månaden och det är lite väl dyrt om man vill använda det privat. Om det hade
 varit 49 Euro om året, så hade funderat på det. Nu hittade jag en liten rad om att det ska vara
-gratis om har open source-kod. Vi får se om 14 dagar om det stämmer. Jag hoppas det, för det var
-ett trevligt verktyg att använda och gav några bra tips på hur jag kunde förbättra min kod.
+gratis om har open source-kod. Jag tycker det var ett trevligt verktyg att använda och det gav
+mig några bra tips på hur jag kunde förbättra min kod.
 
-Min kodtäckning var 99 % och kodkvaliteten var 9. Det enda den klagade på var komplexiteten som
-var 53. Jag kan hålla med. Klasser ska vara korta och göra en sak. Det skulle nog gå att dela upp
+Min kodtäckning var 99 % och kodkvaliteten var 7.89. Det enda den klagade på var komplexiteten som
+var 57. Jag kan hålla med. Klasser ska vara korta och göra en sak. Det skulle nog gå att dela upp
 i fler klasser, kanske en för hela tabellen, en för tabellhuvud, tabellkropp och en för tabellfot.
 Jag låter dock det vara för tillfället.
 
@@ -426,7 +426,7 @@ ett fel, så länge testfallen gick bra.
 #### Gjorde du extrauppgiften? Beskriv i så fall hur du tänkte och vilket resultat du fick.
 Nej, det gjorde jag inte. Det känns som det är viktigare att jag kommer igång med projektet nu. Det
 är inte helt otänkbart att jag lägger in testningen i projektet istället. Vi får se hur mycket
-beroende på hur mycket tid projektet tar.
+testning det blir, beroende på hur mycket tid projektet tar.
 
 #### Allmänt om kursmomentet
 Det här var ett roligt moment som gav en bra inblick i några bra och trevliga verktyg man kan
