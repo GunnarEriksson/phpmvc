@@ -432,3 +432,212 @@ testning det blir, beroende på hur mycket tid projektet tar.
 Det här var ett roligt moment som gav en bra inblick i några bra och trevliga verktyg man kan
 använda i framtiden. Ett kursmoment som visar hur man arbetar med programmering mer professionellt,
 åtminstone om man arbetar på ett seriöst företag.
+
+
+Kmom07/10: Projekt och examination
+----------------------
+
+#### Krav 1, 2, 3: Grunden
+##### Inloggning
+Sidan skyddas av en inloggning. Användare som inte är inloggade kan läsa alla frågor, svar och
+kommentarer. De kan också se en lista på användare och var de bor. Om man loggar in, kan man ställa
+frågor, svara på frågor, lämna kommentarer och se andra användares profiler. Profilen innehåller
+lite uppgifter om användare, samt en gravatarbild.
+
+Under menyn ”Login” kan man logga in. Formuläret ärver CForm och via CForms funktion måste man
+fylla i både akronym och lösenord. Gör man inte det, får användaren en uppmaning att fylla i fälten.
+När man loggar in, görs en sökning i databasen efter akronymet och om det finns jämförs lösenordet
+med lösenordet i databasen. Är något fel får användaren ett meddelande att akronymet inte finns eller
+det är fel lösenord. Lyckas inloggningen, visas användarens profil och ”Login” ändras till ”Profil”
+i menyn. Samtidigt sparas användarens id och akronym i sessionen.
+
+Under menyn ”Skapa konto” kan en person som vill bli medlem skapa ett konto. Formuläret ärver från
+CForm som ser till att alla fält är ifyllda om man vill skapa ett konto. Det görs en sökning i
+databasen för att se om akronymet redan är upptaget. Om det är upptaget får användaren ett
+meddelande att man får använda en annan akronym. Är inte akronymet upptaget, sparas alla uppgifterna
+i databasen och man får ett meddelande att man välkommen till forumet.
+
+##### Användare
+Vilka användare som finns på forumet ser man under menyn ”Användare”. Lösenordet är samma som
+akronymen. För att kunna testa är lösenordet samma som akronymen för dessa användare.
+
+##### Admin
+Admin kan göra allt som användarna kan. Det som skiljer är att admin kan göra det på alla övriga
+användare.
+
+##### Innehåll
+Forumet innehåller en första sida med presentation, senaste frågorna, populäraste taggarna och de
+aktivaste användarna. Är man inloggad kan klicka på de mest aktiva användarna och komma till deras
+profil.
+
+Det finns en sida för frågor, vilka användarna är och en sida som presenterar forumet och den som
+skapade forumet.
+
+Loggar man in får man också tillgång till en profilsida, där man visar mer uppgifter om en användare.
+Via profilsidan kan man uppdatera sin profil samt att logga ut från forumet.
+
+##### Frågor
+En användare kan ställa frågor. Är man inloggad så får man tillgång till en länk där man kan skapa en
+ny fråga. Ett formulär som ärver från CForm ser till att användaren måste fylla i rubrik och själva
+frågan. Användaren kan sedan välja vilka taggar man vill koppla till frågan. Väljer man ingen tagg,
+får frågan taggen ”övrigt”. När man har postat frågan, syns frågan överst i listan över frågor och
+på första sidan. Går man in på användarens profil, syns frågan i fliken frågor.
+
+Varje fråga kan ha många svar. Varje fråga och svar kan ha många kommentarer kopplade till sig.
+
+##### Svar
+En användare kan svara på frågor, både sina egna och andras frågor. När man har svarat på en
+fråga, syns svaret under svarsdelen för frågan och under fliken ”svar” under användarens profil.
+
+##### Kommentarer
+En användare kan kommentera både frågor och svar. Man kan kommentera både sina egna och andras frågor
+och svar. Kommentaren syns under respektive fråga och svar, samt under kommentarsfliken i användarens
+profil.
+
+##### Taggar
+Användaren kan koppla en eller flera taggar till frågan. Gör användaren inte det, får frågan taggen
+”övrigt” kopplat till sig. När en tagg kopplas till en fråga, stegas taggens räknare med ett för
+att man ska veta hur många frågor som har den taggen kopplad till sig.
+
+I menyn ”Taggar” kommer man till en sida där alla taggar är listade med en kort förklaring vad de
+betyder. Man kan också se hur många frågor varje tag har kopplade till sig. Klickar man på taggen
+listas alla frågor som har den taggen kopplad till sig.
+
+Användare kan inte skapa några taggar, utan jag har valt att de som sköter sidan ska ha full kontroll
+över vilka taggar som ska finnas. Annars blir det lätt att användarna kommer skapa onödigt många
+taggar som betyder samma sak eller olika stavningar för samma tagg.
+
+##### Markdown
+Med hjälp av ett textfilter kan frågor, svar och kommentarer skrivas i Markdown.
+
+##### Första sidan
+Första sidan välkomnar användaren och presenterar kort vad forumet är till för.  De fyra sista frågorna
+visas under ”Senaste frågorna” med hjälp av en sökning i frågetabellen i databasen sorterat på de senast
+skapade i fallande ordning. Klickar man på frågan, skickas användaren vidare till frågan.
+
+Under ”Populäraste taggarna” listas de sex mest populära taggarna, som också visar hur många frågor som
+är kopplade till taggarna.  Taggarna listas med hjälp av en sökning i tabellen för taggar och sorterars
+efter störst antal frågor som är kopplade till taggen i fallande ordning. Antalet taggar som visas är
+begränsat till sex stycken och taggarna måste ha minst en fråga kopplade till sig för att visas. Klickar
+man på taggen, visas alla frågor som är kopplade till taggen.
+
+Under ”Mest aktiva användare” visas vilka användare (och deras gravatar) som är mest aktiva. En användare
+får olika poäng för varje fråga, svar, kommentar, accepterande av svar och röstningar. Dessa poäng finns
+samlat för varje användare i tabellen för användare. Högst poäng ligger överst i listan och antalet mest
+aktiva användare är begränsat till fyra stycken. Är man inloggad och klickar på en användare så visas
+användarens profil.
+
+##### GitHub
+Webbplatsen finns sparad på GitHub och har en README som beskriver hur man checkar ut och installerar
+en egen version. Det finns två alternativ att välja på hur man sätter upp databasen.
+
+##### Drift
+Webbsidan finns i drift med innehåll på studentservern.
+
+#### Krav 4: Frågor (optionell)
+En användare kan markera ett svar som accepterat. Detta visas som en grön bock till vänster i fältet för
+svaret. Vill användaren ångra sitt val, kan en ny fråga accepteras. Den gröna bocken flyttas då till den
+senaste accepterade svaret.
+
+En användare kan rösta på frågor, svar och kommentarer. Detta görs med pilen ovan respektive nedanför
+siffran som finns i fältet till vänster i frågan, svaret eller kommentaren. Mappningstabeller begränsar
+så att användaren inte kan rösta på sina egna frågor, svar och kommentarer. En användare kan inte heller
+rösta flera gånger på samma fråga, svar eller kommentar.
+
+För en fråga kan svaren sorteras enligt röster eller tiden då svaren skapades. Vilket som önskas avgörs
+vilken svarsflik man klickar på.
+
+Översikten av frågorna kan man se hur många röster (rank) frågan har fått genom att titta på siffran
+bredvid tummen upp symbolen. Nedan för finns en symbol som består av två pratbubblor. Siffran bredvid
+symbolen visar hur många svar frågan har.
+
+#### Krav 5: Användare (optionell)
+Webbplatsen har ett poängsystem för användare. Skapad fråga ger 5 poäng, svar ger 3 poäng, accepterande
+av svar ger 3 poäng, kommentar ger 2 poäng och röstning ger 1 poäng. Summan av dessa poäng avgör hur
+aktiv användaren är. De fyra mest aktiva användarna syns på framsidan under ”Mest aktiva användare”.
+
+En användares rankning är förutom den ovanstående summan av poäng också antal röster användaren får av
+andra när det gäller användarens frågor, svar och kommentarer.
+
+Under användarens profil sammanställs antal och poäng för de olika aktiviteterna, samt den totala summan
+för rankningen.
+#### Krav 6: Valfritt (optionell)
+##### Utseende
+Jag har lagt en hel del arbete på sidans utseende. Frågedelen liknar mycket hur det ser ut i Stack
+Overflow, som jag tycker ser snygg ut. Det tog lite tid att få det utseendet på plats.
+
+Jag har också arbetat en hel del med en användares profilsida. På sidan finns det ett system med
+flikar som sorterar frågor, svar och kommentarer som användaren har skrivit. Till höger om flikarna
+kan man se antalet frågor, svar eller kommentarer användaren har skrivit. Svaren har frågans rubrik
+som svaret är kopplat till. Klickar man på rubriken kommer man till frågan. När det gäller kommentarerna
+finns de två olika rubriker. Till hör kommentaren en fråga, syns frågans rubrik överst. Tillhör
+kommentaren ett svar, syns början av svaret överst. Klickar man på rubriken kommer man till sidan där
+frågans svar och kommentarer syns.
+
+##### Egen modul
+Tabellen som listar alla användare har jag använt min egen modul chtmltable. När jag gjorde moment 5
+i somras gjorde jag först en enkel modul som kunde läsa in en associativ array och hade få övriga
+inställningsmöjligheter. När jag började med projektet tyckte jag det kunde vara kul att använda en
+egen modul. Jag lade därför ca 10 timmar att uppdatera modulen så den passade mitt projekt. Den läser
+nu in en array med objekt och den har nu möjligheten att använda en funktion för att kunna bearbeta
+den inlästa datan på flera sätt. I projektet används funktionen till att kunna skicka in HTML-strängar
+för att kunna visa en användares gravatar och kunna använda fontawesome bild för att kunna uppdatera
+en användares data.
+
+##### En annan students modul
+I projektet har jag inkluderat Calgus flash-modul. Modulen hämtas med hjälp av Composer och inga ändringar
+har gjorts i modulens kod. Det enda jag har ändrat är stylingen av flash-meddelanden med hjälp av en Less-fil.
+
+##### Frågor, svar och kommentarer
+En användare kan uppdatera sina egna frågor, svar och kommentarer.
+
+##### Röstning
+En användare kan inte rösta på sina egna frågor, svar och kommentarer. En användare kan bara rösta en gång på
+andras frågor, svar och kommentarer. Försöker man, så visas ett flash-meddelande. För att begränsa röstningen
+har jag använt mappningstabeller i databasen.
+
+##### Säkerhet
+Med hjälp av session-hantering har jag lagt ner tid på att hindra direkt access via webbläsarens adressfält.
+Även om en knapp inte syns, t ex lägga till ny fråga, ska det inte vara möjligt att skriva in adressen direkt
+till action-metoden för att skapa en ny fråga och på så sätt vara möjligt att komma in bakvägen.
+
+#### Allmänt om projektet
+För min egen del har det flutit på bra utan några problem. Kanske beror det på att jag tidigt beslutade mig
+för att arbeta enligt principen HMVC, d v s att varje MVC-triad är ansvarig för en begränsad mängd arbete.
+I min lösning har det inneburit 8 vanliga tabeller och 7 mappningstabeller i databasen och en hel del skicka
+vidare med hjälp av dispatcher-funktionen. De flesta controllers kopplar bara upp sig mot en tabell, men det
+finns några som kopplar upp sig två. Det skulle säkert kunna lösas om jag hade varit lite mer erfaren att jobba
+med tabeller. Fyra join-satser, där kände jag att min gräns går för närvarande.
+
+Fördelen att arbeta enligt HMVC, var att jag kunde koppla på nya uppgifter eftersom. Jag tyckte de olika klasserna
+blev hyfsat små, även om det finns några klasser med en hel del rader kod.
+
+I de tidigare projekten, tyckte jag att koden kunde bli rörig. Det var svårt att dela upp koden på ett snyggt sätt.
+I det här projektet föll allt på plats. Varje sak har sin plats, vilket gör det enkelt att leta efter de filer man
+söker efter.
+
+Att arbeta med färdiga moduler har också fungerat bra. Det känns som jag har sparat mycket tid genom att använda
+modulen CForm och Calgus flash-modul.
+
+Som vanligt har det gått åt en hel del mer arbetstimmar än vad som står i uppgiften. Annars hade det varit roligt
+att skriva lite testfall också, men det räckte tiden inte till.
+
+#### Allmänt om kursen
+Kursen har varit intensiv och betydligt mer tidskrävande än de andra kurserna. Jag tycker det är svårt att hinna
+på 20 timmar även om man inte kör fast. Ibland känns det som man måste arbeta väldigt långsamt eftersom man har
+svårt att hinna med. I den här kursen var det mycket att läsa. Det kan ibland kännas tröttsamt när arbeta sig
+igenom alla länkarna som finns på sidan för kursmomentet.
+
+Ramverk har annars varit en trevlig bekantskap. Ibland satt man som ett frågetecken, men när bitarna väl föll
+på plats så är det roligt att arbeta med ett ramverk. Svårigheten är när något går fel, då är det oftare
+svårare att komma på vad som är fel. Kanske beror det på att man själv inte har gjort all kod.
+
+Jag gjorde de flesta momenten i somras och försökte dela upp katalogerna för de olika momenten på ett vettigt
+sätt, så jag inte skulle skriva över något. Tyvärr glömde jag bort att ramverket var gemensamt för de olika
+momenten. Då man dessutom skulle bygga på vissa övningar i senare moment, så råkade jag ta sönder tidigare
+moment. Inget svårlöst, men det kanske såg ut som jag testade momenten dåligt innan jag lämnade in dessa.
+
+Att avsluta varje kurs med ett projekt, tycker jag fungerar mycket bra för min del. Det känns som alla
+bitarna som man har lärt sig under momenten faller på plats.
+
+En omfattande kurs med många lärorika moment gör att kursen får 9 av 10 av mig.
